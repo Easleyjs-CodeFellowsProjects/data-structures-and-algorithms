@@ -1,0 +1,16 @@
+{
+  "name": "array-reverse",
+  "version": "1.0.0",
+  "description": "# Option #1",
+  "main": "reverseArray.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --coverage"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^29.7.0"
+  }
+}
