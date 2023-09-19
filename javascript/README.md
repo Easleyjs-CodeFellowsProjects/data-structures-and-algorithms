@@ -1,5 +1,9 @@
 # Data Structures and Algorithms
 
+## Table of Contents:
+
+1. [Array Reverse](./array-reverse/README.md)
+
 ## Language: `JavaScript`
 
 ### Folder and Challenge Setup
