@@ -63,16 +63,4 @@ class LinkedList {
   }
 }
 
-let testList = new LinkedList;
-
-testList.insert('a');
-
-testList.insert('b');
-
-testList.insert('c');
-
-//console.log(testList.includes('test value1'));
-
-console.log(testList.toString());
-
-module.exports = { LinkedList, Node };
+module.exports = { LinkedList };
