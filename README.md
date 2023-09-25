@@ -22,3 +22,4 @@ To run your tests
 
 [Code Challenge 2: Array Shift Insert](./javascript/array-insert-shift/README.md)
 [Code Challenge 3: Array Binary Search](./javascript/array-binary-search/README.md)
+[Code Challege 5: Linked List](./javascript/linked-list/README.md)
