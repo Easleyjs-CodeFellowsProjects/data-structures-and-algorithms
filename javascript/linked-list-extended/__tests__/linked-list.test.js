@@ -1,87 +1,102 @@
 'use strict';
 
 const { describe } = require('eslint/lib/rule-tester/rule-tester');
-/*
-- Can successfully instantiate an empty linked list
-- Can properly insert into the linked list
-- The head property will properly point to the first node in the linked list
-- Can properly insert multiple nodes into the linked list
-- Will return true when finding a value within the linked list that exists
-- Will return false when searching for a value in the linked list that does not exist
-- Can properly return a collection of all the values that exist in the linked list
-*/
 
 // Require our linked list implementation
 const { LinkedList } = require('../index');
 
-describe('Should create a blank Linked List', () => {
-  test('Create an empty Linked List', () => {
-    const emptyList = new LinkedList;
+describe('Should add a node the end of a Linked List', () => {
 
-    expect(emptyList.head).toEqual(null);
+  const newList = new LinkedList;
+
+
+  test('Add node to head, verify add', () => {
+    newList.insert('Head');
+
+    expect(newList.head.value).toEqual('Head');
   });
+
+  test('Verify additonal insert still works correctly', () => {
+    newList.insert('node2');
+    expect(newList.head.value).toEqual('node2');
+  });
+
+  test('Append node, verify it was added after head', () => {
+    newList.append('Tail');
+
+    expect(newList.head.next.next.value).toEqual('Tail');
+  });
+
 });
 
-describe('Should be able to insert a node into a new Linked List', () => {
-  test('Insert node into new Linked List', () => {
-    const myList = new LinkedList;
-    myList.insert('Some Value');
+describe('Should be able to add multiple nodes to a Linked List', () => {
+  const myList = new LinkedList;
+  myList.insert('1');
 
-    expect(typeof myList.head).toEqual('object');
-  });
-});
+  test('Add multiple nodes to Linked List', () => {
+    myList.append('2');
+    myList.append('3');
+    myList.append('4');
 
-describe('Should be able to point to first node in a new Linked List', () => {
-  test('Access value from first node in Linked List', () => {
-    const myList = new LinkedList;
-    myList.insert('1');
-
-    expect(myList.head.value).toEqual('1');
-  });
-});
-
-describe('Should be able to insert multiple nodes into a Linked List', () => {
-  test('Insert multiple nodes', () => {
-    const myList = new LinkedList;
-    myList.insert('1');
-    myList.insert('2');
-    myList.insert('3');
-
-    expect(myList.head.value).toEqual('3');
     expect(myList.head.next.value).toEqual('2');
-    expect(myList.head.next.next.value).toEqual('1');
+    expect(myList.head.next.next.value).toEqual('3');
+    expect(myList.head.next.next.next.value).toEqual('4');
   });
 });
 
-describe('Should return true searching for a value that exists in a Linked List', () => {
-  test('Search for value in Linked List', () => {
-    const myList = new LinkedList;
-    myList.insert('Barney');
-    myList.insert('Fred');
-    myList.insert('Dino');
+//Can successfully insert a node before a node located i the middle of a linked list
+describe('Should be able to insert a node at position i in a Linked List', () => {
+  const myList = new LinkedList;
+  myList.insert('1');
+  myList.insert('2');
+  myList.insert('3');
+  myList.insert('4');
+  myList.insert('5');
 
-    expect(myList.includes('Dino')).toBeTruthy();
+  test('Add a node to Linked List at a given position', () => {
+    myList.insertBefore('4','X');
+
+    expect(myList.head.next.value).toEqual('X');
+  });
+
+  test('Insert a node before the first node',() => {
+    myList.insertBefore('5','Y');
+
+    expect(myList.head.value).toEqual('Y');
   });
 });
 
-describe('Should return false searching for a value that does not exist in a Linked List', () => {
-  test('Search for value in Linked List', () => {
-    const myList = new LinkedList;
-    myList.insert('Snagglepuss');
-    myList.insert('Deputy Dog');
-    myList.insert('Quickdraw McGraw');
+//Can successfully insert a node after a node located i the middle of a linked list
+describe('Should be able to insert a node after a node in the middle of a Linked List', () => {
+  const myList = new LinkedList;
+  myList.insert('1');
+  myList.insert('2');
+  myList.insert('3');
+  myList.insert('4');
+  myList.insert('5');
 
-    expect(myList.includes('Tom')).toBeFalsy();
+  test('Add a node to Linked List at a given position', () => {
+    myList.insertAfter('4','X');
+
+    expect(myList.head.next.next.value).toEqual('X');
   });
 });
 
-describe('Should return ascii depiction of a Linked List', () => {
-  test('Display ascii picture of linked list', () => {
-    const myList = new LinkedList;
-    myList.insert('a');
-    myList.insert('b');
-    myList.insert('c');
+/*
+Can successfully insert a node after the last node of the linked list
+*/
+describe('Should be able to insert a node at the end of a Linked List', () => {
+  const myList = new LinkedList;
+  myList.insert('1');
+  myList.insert('2');
+  myList.insert('3');
+  myList.insert('4');
+  myList.insert('5');
 
-    expect(myList.toString()).toEqual('{ a } -> { b } -> { c } -> NULL');
+  test('Add a node to Linked List at the end of the linked list', () => {
+    myList.insertAfter('1','X');
+
+    console.log(myList.toString());
+    expect(myList.head.next.next.next.next.next.value).toEqual('X');
   });
 });
