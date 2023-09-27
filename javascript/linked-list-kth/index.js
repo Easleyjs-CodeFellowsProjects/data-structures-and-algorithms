@@ -125,6 +125,51 @@ class LinkedList {
     listAscii = `${listAscii}NULL`;
     return listAscii;
   }
+
+  /*
+  ## kth from end
+  **argument: a number, k, as a parameter.**
+  - Return the node’s value that is k places from the tail of the linked list.
+
+  pseudocode:
+  Create a storage array for node values, and to implicitly keep track of total length of list
+  Create a pointer variable for the currentNode
+  Move through the arr using the node property .next
+  - If we hit end of the list, return the value at the index of storage array length - k
+  - If not, add current node's value to array
+  */
+  kthFromEnd(k) {
+    const nodeStorage = [];
+    let currentNode = this.head;
+
+    if (k < 0) {
+      return 'ERROR! k must be greater than 0.';
+    }
+
+    if (k === 1 && currentNode && !currentNode.next) {
+      return currentNode.value;
+    }
+
+    while (currentNode) {
+      nodeStorage.push(currentNode.value);
+      //once we get to end of list
+      if (!currentNode.next) {
+        //console.log('Array length:',nodeStorage.length);
+        //console.log('Array values:',nodeStorage);
+        // happy path
+        if (nodeStorage.length > k) {
+          return nodeStorage[nodeStorage.length-k];
+        }
+        if (nodeStorage.length < k) {
+          return 'ERROR! k greater than list length.';
+        }
+        if (nodeStorage.length === k) {
+          return nodeStorage[0];
+        }
+      }
+      currentNode = currentNode.next;
+    }
+  }
 }
 
 module.exports = { LinkedList };
