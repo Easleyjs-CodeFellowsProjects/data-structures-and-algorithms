@@ -15,7 +15,7 @@ ll.kthFromEnd(k)
 ## Tests
 
 ## Whiteboard
-![](whiteboard.png)
+![](whiteboard.jpg)
 
 ## Solution
 node index.js
