@@ -16,5 +16,8 @@ You have access to the Node class and all the properties on the Linked List clas
 - Zip two lists of equal length
 - Zip two lists of different lengths
 
+## Whiteboard
+![](whiteboard.jpg)
+
 ## Solution
 node index.js

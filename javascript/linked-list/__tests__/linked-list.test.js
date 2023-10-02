@@ -88,23 +88,35 @@ xdescribe('Should return ascii depiction of a Linked List', () => {
 describe('Should return a new linked list made from two linked list inputs', () => {
   test('Zips up two equally-sized input lists', () => {
     const listOne = new LinkedList;
-    listOne.insert('A');
-    listOne.insert('C');
     listOne.insert('E');
+    listOne.insert('C');
+    listOne.insert('A');
 
     const listTwo = new LinkedList;
-    listTwo.insert('B');
-    listTwo.insert('D');
     listTwo.insert('F');
+    listTwo.insert('D');
+    listTwo.insert('B');
 
     const newList = zipLists(listOne, listTwo);
-    //console.log(newList.toString());
+
     expect(newList.toString()).toEqual('{ A } -> { B } -> { C } -> { D } -> { E } -> { F } -> NULL');
   });
-  /*
-  xtest('Zips up two different-sized input lists', () => {
 
+  test('Zips up two different-sized input lists', () => {
+    const listOne = new LinkedList;
+    listOne.insert('E');
+    listOne.insert('C');
+    listOne.insert('A');
+
+    const listTwo = new LinkedList;
+    listTwo.insert('H');
+    listTwo.insert('G');
+    listTwo.insert('F');
+    listTwo.insert('D');
+    listTwo.insert('B');
+
+    const newList = zipLists(listOne, listTwo);
+
+    expect(newList.toString()).toEqual('{ A } -> { B } -> { C } -> { D } -> { E } -> { F } -> { G } -> { H } -> NULL');
   });
-  */
-
 });
