@@ -24,3 +24,4 @@ To run your tests
 [Code Challenge 3: Array Binary Search](./javascript/array-binary-search/README.md)
 [Code Challege 5: Linked List](./javascript/linked-list/README.md)
 [Code Challenge 7: Linked List kth from end](.javascript/linked-list/README.md)
+[Code Challenge 8: Linked List Zip](.javascript/linked-list/README.md)
