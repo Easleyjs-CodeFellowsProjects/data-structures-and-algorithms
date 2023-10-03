@@ -25,3 +25,4 @@ To run your tests
 [Code Challege 5: Linked List](./javascript/linked-list/README.md)
 [Code Challenge 7: Linked List kth from end](.javascript/linked-list/README.md)
 [Code Challenge 8: Linked List Zip](.javascript/linked-list/README.md)
+[Code Challenge 9: Stack and Queue](.javascript/stack-and-queue/README.md)
