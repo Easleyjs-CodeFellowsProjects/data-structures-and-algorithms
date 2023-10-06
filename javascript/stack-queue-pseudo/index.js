@@ -107,21 +107,8 @@ class PseudoQueue {
       stackA.push(stackB.pop());
 
     }
-
     return popValue;
   }
 }
 
-let myQueue = new PseudoQueue();
-
-
-myQueue.enqueue(1);
-myQueue.enqueue(2);
-myQueue.enqueue(3);
-
-console.log(myQueue.dequeue());
-console.log(myQueue.dequeue());
-console.log(myQueue.dequeue());
-
-
-//console.log(myQueue.stackA.peek());
+module.exports = PseudoQueue;
