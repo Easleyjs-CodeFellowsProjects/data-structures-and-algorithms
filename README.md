@@ -28,3 +28,5 @@ To run your tests
 [Code Challenge 9: Stack and Queue](.javascript/stack-and-queue/README.md)
 [Code Challenge 11: PseudoQueue](./javascript/stack-queue-pseudo/README.md)
 [Code Challenge 12: StackQueue Animal Shelter](./javascript/stack-queue-animal-shelter/README.md)
+[Code Challenge 15: Trees](./javascript/trees/README.md)
+[Code Challenge 26: Insertion Sort](./javascript/sort/insert/README.md)
