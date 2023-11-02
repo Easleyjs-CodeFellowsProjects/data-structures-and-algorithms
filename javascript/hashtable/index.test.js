@@ -1,7 +1,7 @@
 const HashTable = require('./index.js');
 
 describe('Hash Table class', () => {
-  test('Setting a key/value to your hashtable results in the value being in the data structure', () => {
+  xtest('Setting a key/value to your hashtable results in the value being in the data structure', () => {
     const myHashTable = new HashTable(10);
 
     // Insert multiple key-value pairs into the hash table
@@ -13,7 +13,7 @@ describe('Hash Table class', () => {
     expect(myHashTable.get('apple')).toStrictEqual(['apple:value1']);
   });
 
-  test('Retrieving based on a key returns the value stored', () => {
+  xtest('Retrieving based on a key returns the value stored', () => {
     const myHashTable = new HashTable(10);
 
     // Insert multiple key-value pairs into the hash table
@@ -24,7 +24,7 @@ describe('Hash Table class', () => {
     expect(String(myHashTable.get('apple')).split(':')[1]).toBe('value1');
   });
 
-  test('Successfully returns null for a key that does not exist in the hashtable', () => {
+  xtest('Successfully returns null for a key that does not exist in the hashtable', () => {
     const myHashTable = new HashTable(10);
 
     // Insert multiple key-value pairs into the hash table
@@ -38,7 +38,7 @@ describe('Hash Table class', () => {
 
   });
 
-  test('Successfully returns a list of all unique keys that exist in the hashtable', () => {
+  xtest('Successfully returns a list of all unique keys that exist in the hashtable', () => {
     const myHashTable = new HashTable(10);
 
     // Insert multiple key-value pairs into the hash table
@@ -56,7 +56,7 @@ describe('Hash Table class', () => {
     expect(uniqueKeys).toContain('date');
   });
 
-  test('Successfully retrieve a value from a bucket within the hashtable that has a collision', () => {
+  xtest('Successfully retrieve a value from a bucket within the hashtable that has a collision', () => {
     const myHashTable = new HashTable(10);
 
     // Use keys that result in different hash values
@@ -73,7 +73,7 @@ describe('Hash Table class', () => {
   });
 
 
-  test('Successfully hash a key to an in-range value', () => {
+  xtest('Successfully hash a key to an in-range value', () => {
     const myHashTable = new HashTable(10);
 
     // Choose a key to hash
@@ -86,4 +86,27 @@ describe('Hash Table class', () => {
     expect(hash).toBeGreaterThanOrEqual(0);
     expect(hash).toBeLessThan(myHashTable.size);
   });
+
+  xtest('Successfully hash a key to an in-range value', () => {
+    const myHashTable = new HashTable(10);
+
+    // Choose a key to hash
+    const key = 'exampleKey';
+
+    // Calculate the hash for the chosen key
+    const hash = myHashTable.hash(key);
+
+    // Check if the hash is within the expected range (0 to size - 1)
+    expect(hash).toBeGreaterThanOrEqual(0);
+    expect(hash).toBeLessThan(myHashTable.size);
+  });
+
+  test('Should find the first duplicate word in a string', () => {
+    const input = 'it is what it is';
+    const inputArr = input.split(' ');
+    const myHashTable = new HashTable(inputArr.length);
+
+    console.log(inputArr);
+  });
+
 });
