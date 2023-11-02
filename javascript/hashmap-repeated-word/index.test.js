@@ -1,6 +1,6 @@
-const HashTable = require('./index.js');
+const { HashTable, findRepeatedWords } = require('./index');
 
-describe('Hash Table class', () => {
+describe('It should test hash table functionality', () => {
   xtest('Setting a key/value to your hashtable results in the value being in the data structure', () => {
     const myHashTable = new HashTable(10);
 
@@ -103,10 +103,16 @@ describe('Hash Table class', () => {
 
   test('Should find the first duplicate word in a string', () => {
     const input = 'it is what it is';
-    const inputArr = input.split(' ');
-    const myHashTable = new HashTable(inputArr.length);
+    const results = findRepeatedWords( input );
 
-    console.log(inputArr);
+    expect( results ).toBe('it');
+  });
+
+  test('Should not find duplicate words in a string without them', () => {
+    const input = 'Life is a carnival';
+    const results = findRepeatedWords( input );
+
+    expect( results ).toBe(null);
   });
 
 });
