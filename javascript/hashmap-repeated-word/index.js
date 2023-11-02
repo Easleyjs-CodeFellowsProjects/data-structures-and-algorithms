@@ -36,7 +36,7 @@ class HashTable {
     let hash = this.hash(key); // 0(1)
     let list = this.buckets[hash]; // 0(1)
     if (!list) {
-      console.log('NO VALUES PRESENT FOR GIVEN KEY');
+      //console.log('NO VALUES PRESENT FOR GIVEN KEY');
       return null;
     } else {
       return list.values(); // 0(m) runs as many times as there are values in the list.
@@ -87,16 +87,26 @@ class HashTable {
 
     return Array.from(uniqueKeys);
   }
-
 }
-/*
-const table = new HashTable(1024);
 
-// let position = table.hash('medicine');
-table.set('medicine', 'pills');
-table.set('medicine', 'bandages');
-// console.log(JSON.stringify(table));
-let medicineStuff = table.get('medicine');
-console.log(medicineStuff);
-*/
-module.exports = HashTable;
+function findRepeatedWords( input ) {
+  const inputArr = input.split(' ');
+  const myHashTable = new HashTable(inputArr.length);
+  let duplicatedWord = null;
+  let counter = 0;
+
+  while ( duplicatedWord === null && counter < inputArr.length -1 ) {
+    const word = inputArr[ counter ];
+    const results = myHashTable.get( word );
+    if ( results === null ) {
+      myHashTable.set( word, 1);
+    }
+    if ( results && String(results).split(':')[0] === word ) {
+      duplicatedWord = word;
+    }
+    counter++;
+  }
+  return duplicatedWord;
+}
+
+module.exports = { HashTable, findRepeatedWords };
