@@ -33,20 +33,4 @@ function left_join(firstMap, secondMap) {
   }
 }
 
-const hashMapOne = new HashTable(100);
-hashMapOne.set('diligent', 'employed');
-hashMapOne.set('fond', 'enamored');
-hashMapOne.set('guide', 'usher');
-hashMapOne.set('outfit', 'garb');
-hashMapOne.set('wrath', 'anger');
-
-const hashMapTwo = new HashTable(100);
-hashMapTwo.set('diligent', 'idle');
-hashMapTwo.set('fond', 'averse');
-hashMapTwo.set('guide', 'follow');
-hashMapTwo.set('flow', 'jam');
-hashMapTwo.set('wrath', 'delight');
-
-console.log(left_join(hashMapOne, hashMapTwo));
-
 module.exports = left_join;
