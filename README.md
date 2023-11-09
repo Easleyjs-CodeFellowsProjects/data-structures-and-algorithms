@@ -32,3 +32,4 @@ To run your tests
 [Code Challenge 26: Insertion Sort](./javascript/sort/insert/README.md)
 [Code Challenge 27: Merge Sort](./javascript/sort/merge/README.md)
 [Code Challenge 30: Hash Table](./javascript/hashtable/README.md)
+[Code Challenge 35: Graph](./javascript/graph/README.md)
