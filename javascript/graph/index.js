@@ -29,11 +29,13 @@ Empty collection returned if there are no vertices
 - Returns the total number of vertices in the graph: 0 if there are none
 */
 
+/*
 class Vertex {
   constructor( value ) {
     this.value = value;
   }
 }
+*/
 
 class Edge {
   constructor( vertex, weight = 0 ) {
@@ -48,22 +50,20 @@ class Graph {
   }
 
   size() {
-    return this.adjacencyList.keys().length;
+    return Array.from( this.adjacencyList.keys() ).length;
   }
 
   addVertex( value ) {
-    let vertex = new Vertex( value );
-    this.adjacencyList.set( vertex, [] );
-    return vertex;
+    this.adjacencyList.set( value, [] );
   }
 
-  addEdge( startVertex, endVertex, weight = 0 ) {
-    if ( !this.adjacencyList.get( startVertex ) || !this.adjacencyList.get( endVertex ) ) {
-      throw new Error('invalid vertices');
-    }
+  addEdge(vertex1, vertex2) {
+    this.addVertex(vertex1);
+    this.addVertex(vertex2);
 
-    const adjacencies = this.adjacencyList.get( startVertex );
-    adjacencies.push( new Edge( endVertex, weight ));
+    // Assuming an undirected graph, so the edge is added to both vertices
+    this.adjacencyList.set(vertex1, [...this.adjacencyList.get(vertex1) || [], vertex2]);
+    this.adjacencyList.set(vertex2, [...this.adjacencyList.get(vertex2) || [], vertex1]);
   }
 
   getEdges( vertex ) {
@@ -71,7 +71,33 @@ class Graph {
   }
 
   getVerticies() {
-    return this.adjacencyList.keys();
+    return Array.from( this.adjacencyList.keys() );
+  }
+
+  getNeighbors(vertex) {
+    if (!this.adjacencyList.has(vertex)) {
+      return null; // Vertex not found in the graph
+    }
+
+    if ( this.adjacencyList.get(vertex).length === 0 ) {
+      return null;
+    }
+    return this.adjacencyList.get(vertex);
+  }
+
+  displayAllNeighbors() {
+    const allVerticies = this.getVerticies();
+    let neighborStringsArr = [];
+
+    allVerticies.forEach( vertex => {
+      const vertexNeighbors = this.getNeighbors( vertex );
+
+      vertexNeighbors.map( neighbor => {
+        neighborStringsArr.push( `${ vertex } => ${ neighbor}` );
+      });
+
+    });
+    return neighborStringsArr;
   }
 
 }
