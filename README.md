@@ -33,3 +33,4 @@ To run your tests
 [Code Challenge 27: Merge Sort](./javascript/sort/merge/README.md)
 [Code Challenge 30: Hash Table](./javascript/hashtable/README.md)
 [Code Challenge 35: Graph](./javascript/graph/README.md)
+[Code Challenge 36: Graph BFS](./javascript/graph-breadth-first/README.md)
