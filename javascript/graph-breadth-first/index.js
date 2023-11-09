@@ -100,6 +100,35 @@ class Graph {
     return neighborStringsArr;
   }
 
+  breadthFirstSearch(startingVertex) {
+    const visited = new Map();
+    const queue = [];
+
+    // Mark the starting vertex as visited and enqueue it
+    visited.set(startingVertex, true);
+    queue.push(startingVertex);
+
+    // Loop until the queue is empty
+    while (queue.length > 0) {
+      // Dequeue a vertex from the queue
+      const currentVertex = queue.shift();
+      console.log(currentVertex);
+
+      // Get adjacent vertices of the dequeued vertex
+      const adjacentVertices = this.vertices.get(currentVertex);
+
+      // Loop through the adjacent vertices
+      for (const neighbor of adjacentVertices) {
+        // If the neighbor has not been visited, mark it as visited and enqueue it
+        if (!visited.has(neighbor)) {
+          visited.set(neighbor, true);
+          queue.push(neighbor);
+        }
+      }
+    }
+  }
+
+
 }
 
 module.exports = Graph;
