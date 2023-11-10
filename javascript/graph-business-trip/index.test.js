@@ -1,64 +1,37 @@
 const Graph = require('./index');
 
-describe('It should instantiate a working Graph', () => {
+describe('It should be able to create a working Graph to calculate travel costs', () => {
 
-  test('A vertex can be successfully added to the graph', () => {
-    const myGraph = new Graph();
+  test('A flight can be successfully added to the graph', () => {
+    const flightGraph = new Graph();
 
-    myGraph.addVertex( 'Ryu' );
+    flightGraph.addFlight('Narnia', 'Naboo', 250);
 
-    expect( myGraph.getVerticies()[0] ).toEqual('Ryu');
+    expect( flightGraph.getVerticies()[0][0] ).toEqual('Narnia');
+  });
+
+  test('A possible trip returns the correct value', () => {
+    const flightGraph = new Graph();
+
+    const trip = ['Metroville', 'Pandora' ];
+
+    flightGraph.addFlight('Narnia', 'Naboo', 250);
+    flightGraph.addFlight('Metroville', 'Pandora', 82);
+
+    expect( flightGraph.dijkstra( trip ) ).toEqual( 82 );
 
   });
 
-  test('An edge can be successfully added to the graph', () => {
-    const myGraph = new Graph();
+  test('An impossible trip returns false', () => {
+    const flightGraph = new Graph();
 
-    myGraph.addVertex( 'Ryu' );
-    myGraph.addVertex( 'Ken' );
-    myGraph.addEdge('Ryu', 'Ken');
+    const trip = ['Metroville', 'Naboo' ];
 
-    expect( myGraph.adjacencyList.get( 'Ryu' ) ).toEqual(['Ken']);
+    flightGraph.addFlight('Narnia', 'Naboo', 250);
+    flightGraph.addFlight('Metroville', 'Pandora', 82);
 
-  });
+    expect( flightGraph.dijkstra( trip ) ).toEqual( false );
 
-  test('A collection of all vertices can be properly retrieved from the graph', () => {
-    const myGraph = new Graph();
-
-    myGraph.addVertex( 'Ryu' );
-    myGraph.addVertex( 'Ken' );
-
-    //console.log( myGraph.adjacencyList );
-    expect( myGraph.getVerticies().map( vertex => vertex ) ).toEqual(['Ryu','Ken']);
-  });
-
-  test('All appropriate neighbors can be retrieved from the graph', () => {
-    const myGraph = new Graph();
-
-    myGraph.addVertex( 'Ryu' );
-    myGraph.addVertex( 'Ken' );
-    myGraph.addEdge('Ryu', 'Ken');
-
-    expect( myGraph.displayAllNeighbors() ).toEqual([ 'Ryu => Ken', 'Ken => Ryu' ]);
-  });
-
-  test('The proper size is returned, representing the number of vertices in the graph', () => {
-    const myGraph = new Graph();
-
-    myGraph.addVertex( 'Ryu' );
-    myGraph.addVertex( 'Ken' );
-    myGraph.addEdge('Ryu', 'Ken');
-
-    expect( myGraph.size() ).toEqual(2);
-  });
-
-  test('A graph with only one vertex and edge can be properly returned', () => {
-    const myGraph = new Graph();
-
-    myGraph.addVertex( 'Ryu' );
-    myGraph.addEdge('Ryu', null);
-
-    expect( myGraph.adjacencyList.get('Ryu') ).toEqual([null]);
   });
 
 });

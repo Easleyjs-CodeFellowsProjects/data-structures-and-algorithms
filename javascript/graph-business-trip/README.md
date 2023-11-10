@@ -1,39 +1,35 @@
 # Challenge Title
-## Graph - Breadth First Search
+## Graph - Business Trip
 
 ## Description
-Implement BFS on a Graph data structure in JS
+Given a business trip itinerary, and an Alaska Airlines route map, is the trip possible with direct flights? If so, how much will the total trip cost be?
 
 ## Requirements (methods)
 
-**add vertex**
-Arguments: value
-Returns: The added vertex
-Add a vertex to the graph
+Sample data:
 
-**add edge**
-- Arguments: 2 vertices to be connected by the edge, weight (optional)
-- Returns: nothing
-- Adds a new edge between two vertices in the graph
+**Verticies**
+Pandora
+Arendelle
+Metroville
+Monstropolis
+Naboo
+Narnia
 
-If specified, assign a weight to the edge
-Both vertices should already be in the Graph
+**Edges**
+Narnia -> Naboo (250)
+Narnia -> Metroville (37)
+Metroville -> Naboo (26)
 
-**get vertices**
-- Arguments: none
-- Returns all of the vertices in the graph as a collection (set, list, or similar)
-- Empty collection returned if there are no vertices
+Metroville -> Arendelle (99)
+Metroville -> Pandora (82)
+Metroville -> Monstropolis (105)
 
-**get neighbors**
-- Arguments: vertex
-- Returns a collection of edges connected to the given vertex
+Pandora -> Arendelle (150)
+Arendelle -> Monstropolis (42)
+Monstropolis -> Naboo (73)
 
-Include the weight of the connection in the returned collection
-Empty collection returned if there are no vertices
 
-**size**
-- Arguments: none
-- Returns the total number of vertices in the graph: 0 if there are none
 
 
 ## Tests
